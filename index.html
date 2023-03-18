@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<!-- <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script> -->
+<script src="js/jquery.3.1.0.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link rel="stylesheet" href="mycss/player.css">
+<title>Arknights</title>
+
+<style>
+
+body {
+	background-color : black;
+	background-image : url('myimgs/bg3.png');
+	background-size : cover;
+	overflow : hidden;
+	transition : 2s;
+}
+
+#opwrap {
+	background-color : black;
+	z-index : 999;
+	position : fixed;
+	top : 0px;
+	bottom : 0px;
+	left : 0px;
+	right : 0px;
+}
+
+#wrap {
+	height : 1080px;
+	border : 0px;
+}
+
+.opening {
+	position : fixed;
+	top : 0px;
+	bottom : 0px;
+	left : 0px;
+	right : 0px;
+	background-color : black;
+	width : 500px;
+	margin : 0 auto;
+}
+
+.img1 {
+	position : absolute;
+	top : 280px;
+	left : 0px;
+	width : 500px;
+	height : 500px;
+	opacity : 0;
+}
+
+.img2 {
+	position : absolute;
+	top : 437px;
+	left : 629px;
+	z-index : 103;
+}
+
+.img3 {
+	position : absolute;
+	top : 492px;
+	left : 676px;
+}
+
+.img4 {
+	position : absolute;
+	top : 533px;
+	left : 678px;
+}
+
+.img5 {
+	position : absolute;
+	top : 533px;
+	left : 710px;
+	opacity : 0.8;
+}
+
+.img6 {
+	position : absolute;
+	top : 444px;
+	left : 725px;
+
+}
+
+.img7 {
+	position : absolute;
+	top : 441px;
+	left : 746px;
+
+}
+
+.img8 {
+	position : absolute;
+	top : 472px;
+	left : 790px;
+
+}
+
+.app1hover {
+	opacity : 0;
+}
+
+@-webkit-keyframes sizer{
+		0%
+		{
+			transform : scale(1.0);
+		}
+		100%
+		{
+			transform : scale(1.05);
+		}
+}
+
+@-webkit-keyframes scaling{
+		0%
+		{
+			transform : scale(1.0);
+		}
+		50%
+		{
+			transform : scale(1.1);
+		}
+		100%
+		{
+			transform : scale(1.0);
+		}
+}
+
+.img1 {
+	-webkit-animation-name:             sizer; 
+	-webkit-animation-duration:         6s; 
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+}
+
+.uptime {
+	position : absolute;
+	top : 500px;
+	left : 668px;
+	float : left;
+	color : white;
+}
+
+span {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size : 17pt;
+	margin : -2.6px;
+}
+
+
+.ps0 {
+	position : absolute;
+	z-index : 103;
+	top : 449px;
+	left : 700px;
+}
+
+.ps1 {
+	position : absolute;
+	z-index : 103;
+	top : 491px;
+	left : 762px;
+}
+
+.ps2 {
+	position : absolute;
+	z-index : 103;
+	top : 508px;
+	left : 766px;
+}
+
+.ps3 {
+	position : absolute;
+	z-index : 103;
+	top : 523px;
+	left : 762px;
+}
+
+.ps4 {
+	position : absolute;
+	z-index : 103;
+	top : 538px;
+	left : 755px;
+}
+
+.ps5 {
+	position : absolute;
+	z-index : 103;
+	top : 552px;
+	left : 745px;
+}
+
+.ps6 {
+	position : absolute;
+	z-index : 103;
+	top : 563px;
+	left : 731px;
+}
+
+.ps7 {
+	position : absolute;
+	z-index : 103;
+	top : 571px;
+	left : 716px;
+}
+
+.ps8 {
+	position : absolute;
+	z-index : 103;
+	top : 574px;
+	left : 701px;
+}
+
+.ps9 {
+	position : absolute;
+	z-index : 103;
+	top : 571px;
+	left : 685px;
+}
+
+.ps10 {
+	position : absolute;
+	z-index : 103;
+	top : 563px;
+	left : 669px;
+}
+
+.ps11 {
+	position : absolute;
+	z-index : 103;
+	top : 552px;
+	left : 656px;
+}
+
+.ps12 {
+	position : absolute;
+	z-index : 103;
+	top : 539px;
+	left : 647px;
+}
+
+.ps13 {
+	position : absolute;
+	z-index : 103;
+	top : 524px;
+	left : 642px;
+}
+
+.ps14 {
+	position : absolute;
+	z-index : 103;
+	top : 509px;
+	left : 641px;
+}
+
+.ps15 {
+	position : absolute;
+	z-index : 103;
+	top : 492px;
+	left : 642px;
+}
+
+.ps16 {
+	position : absolute;
+	z-index : 103;
+	top : 477px;
+	left : 646px;
+}
+
+.ps17 {
+	position : absolute;
+	z-index : 103;
+	top : 464px;
+	left : 655px;
+}
+
+.ps18 {
+	position : absolute;
+	z-index : 103;
+	top : 455px;
+	left : 668px;
+}
+
+.ps19 {
+	position : absolute;
+	z-index : 103;
+	top : 450px;
+	left : 683px;
+}
+
+@-webkit-keyframes spin{
+		from 
+		{
+			-webkit-transform: rotate(0deg);
+		}
+		to
+		{
+			-webkit-transform: rotate(360deg);
+		}
+}
+
+@-webkit-keyframes spin2{
+		from 
+		{
+			-webkit-transform: rotate(360deg);
+		}
+		to
+		{
+			-webkit-transform: rotate(0deg);
+		}
+}
+
+
+
+.rd1{
+	position : absolute;
+	top : 848px;
+	left : 1720px;
+	-webkit-animation-name:             spin; 
+	-webkit-animation-duration:         12s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd2{
+	position : absolute;
+	top : 848px;
+	left : 1720px;
+	-webkit-animation-name:             spin2; 
+	-webkit-animation-duration:         7s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd3{
+	position : absolute;
+	top : 854px;
+	left : 1726px;
+	-webkit-animation-name:             spin; 
+	-webkit-animation-duration:         12s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd4{
+	position : absolute;
+	top : 860px;
+	left : 1732px;
+	-webkit-animation-name:             spin2; 
+	-webkit-animation-duration:         7s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd5{
+	position : absolute;
+	top : 860px;
+	left : 1732px;
+	-webkit-animation-name:             spin; 
+	-webkit-animation-duration:         10s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd6{
+	position : absolute;
+	top : 866px;
+	left : 1738px;
+	-webkit-animation-name:             spin2; 
+	-webkit-animation-duration:         8s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd7{
+	position : absolute;
+	top : 883px;
+	left : 1755px;
+	-webkit-animation-name:             spin2; 
+	-webkit-animation-duration:         10s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd8{
+	position : absolute;
+	top : 883px;
+	left : 1755px;
+	-webkit-animation-name:             spin; 
+	-webkit-animation-duration:         6s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd9{
+	position : absolute;
+	top : 890px;
+	left : 1762px;
+	-webkit-animation-name:             spin; 
+	-webkit-animation-duration:         9s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.rd10{
+	position : absolute;
+	top : 894px;
+	left : 1766px;
+	-webkit-animation-name:             spin2; 
+	-webkit-animation-duration:         6s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.etc1 {
+	position : absolute;
+	top : 828px;
+	left : 1708px;
+	
+}
+
+.etc2 {
+	position : absolute;
+	top : 831px;
+	left : 1742px;
+	
+}
+
+.etc3 {
+	position : absolute;
+	top : 846px;
+	left : 1638px;
+	
+}
+
+.etc4 {
+	position : absolute;
+	top : 813px;
+	left : 1680px;
+}
+
+.etc5 {
+	position : absolute;
+	top : 815px;
+	left : 1468px;
+}
+
+.etc6 {
+	position : absolute;
+	top : 800px;
+	left : 1704px;
+}
+
+.app2etc {
+	position : fixed;
+	top : 0px;
+	left : 0px;
+	right : 0px;
+	bottom : 0px;
+}
+
+.CC1 {
+	position : absolute;
+	top : 8px;
+	left : 828px;
+	-webkit-animation-name:             spin; 
+	-webkit-animation-duration:         6s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.CC2 {
+	position : absolute;
+	top : 8px;
+	left : 828px;
+}
+
+.CC3 {
+	position : absolute;
+	top : 12px;
+	left : 832px;
+	
+}
+
+.CC4 {
+	position : absolute;
+	top : 14px;
+	left : 834px;
+	-webkit-animation-name:             spin2; 
+	-webkit-animation-duration:         4s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.CC5 {
+	position : absolute;
+	top : 14px;
+	left : 834px;
+}
+
+.date1 {
+	font-family: 'Ubuntu', sans-serif;
+	font-weight : bold;
+	font-size : 25pt;
+	src : url('myfonts/estre.ttf');
+	position : absolute;
+	font-stretch : expanded;
+	top : 13px;
+	left : 914px;
+	color : white;
+}
+
+.date2 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-stretch : expanded;
+	position : absolute;
+	font-size : 8pt;
+	top : 43px;
+	left : 940px;
+	color : white;
+}
+
+.date3 {
+	font-family : 'Arial';
+	position : absolute;
+	font-size : 7pt;
+	top : 58px;
+	left : 960px;
+	color : white;
+	opacity : 0.4;
+}
+
+.date4 {
+	font-family : 'Arial';
+	position : absolute;
+	font-size : 7pt;
+	top : 58px;
+	left : 977px;
+	color : white;
+	opacity : 0.4;
+}
+
+.date5 {
+	font-family : 'Arial';
+	position : absolute;
+	font-size : 7pt;
+	top : 58px;
+	left : 909px;
+	color : white;
+	opacity : 0.4;
+}
+
+.date6 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 14pt;
+	top : 898px;
+	left : 1801px;
+	color : white;
+	opacity : 0.8;
+}
+
+.date7 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 14pt;
+	top : 898px;
+	left : 1825px;
+	color : white;
+	opacity : 0.8;
+}
+
+.date8 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 14pt;
+	top : 898px;
+	left : 1849px;
+	color : white;
+	opacity : 0.8;
+	transform : scale(-1, 1)
+}
+
+.date9 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 14pt;
+	top : 898px;
+	left : 1871px;
+	color : white;
+	opacity : 0.8;
+}
+
+.date10 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 11pt;
+	top : 919px;
+	left : 1811px;
+	color : white;
+	opacity : 0.8;
+}
+
+.date11 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 11pt;
+	top : 938px;
+	left : 1784px;
+	color : white;
+	opacity : 0.8;
+}
+
+.date12 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 4pt;
+	top : 821px;
+	left : 1613px;
+	color : white;
+	opacity : 0.8;
+}
+.date13 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 4pt;
+	top : 828px;
+	left : 1633px;
+	color : white;
+	opacity : 0.8;
+}
+
+.date14 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	position : absolute;
+	font-size : 4pt;
+	top : 842px;
+	left : 1613px;
+	color : white;
+	opacity : 0.8;
+}
+
+.logo1 {
+	position : absolute;
+	z-index : 498;
+	top : 911px;
+	left : 698px;
+}
+
+.app5 {
+	position : fixed;
+	top : 0px;
+	bottom : 0px;
+	left : 0px;
+	right : 0px;
+}
+
+.meter1 {
+	position : absolute;
+	z-index : 501;
+	top : 6px;
+	left : 1724px;
+}
+
+.toggle1 {
+	position : absolute;
+	top : 943px;
+	left : -9px;
+}
+
+.toggle2 {
+	position : absolute;
+	top : 945px;
+	left : 12px;
+	z-index : 500;
+}
+
+.toggle3 {
+	position : absolute;
+	top : 945px;
+	left : 93px;
+	z-index : 500;
+}
+
+.music1 {
+	position : absolute;
+	z-index : 501px;
+	top : 28px;
+	left : 133px;
+	opacity : 0.3;
+	transition : 0.3s;
+	z-index : 500;
+}
+
+.music1:hover {
+	opacity : 0.8;
+	transition : 0.3s;
+}
+
+.container-block {
+	display : block;
+}
+
+.music1-opacity {
+	opacity : 0.8;
+}
+
+@-webkit-keyframes eq {
+  0% {
+    height: 30px;
+  }
+  4% {
+    height: 50px;
+  }
+  8% {
+    height: 40px;
+  }
+  12% {
+    height: 30px;
+  }
+  16% {
+    height: 20px;
+  }
+  20% {
+    height: 30px;
+  }
+  24% {
+    height: 20px;
+  }
+  28% {
+    height: 10px;
+  }
+  32% {
+    height: 30px;
+  }
+  36% {
+    height: 40px;
+  }
+  40% {
+    height: 10px;
+  }
+  44% {
+    height: 20px;
+  }
+  48% {
+    height: 30px;
+  }
+  52% {
+    height: 10px;
+  }
+  56% {
+    height: 0px;
+  }
+  60% {
+    height: 10px;
+  }
+  64% {
+    height: 20px;
+  }
+  68% {
+    height: 30px;
+  }
+  72% {
+    height: 40px;
+  }
+  76% {
+    height: 50px;
+  }
+  80% {
+    height: 40px;
+  }
+  84% {
+    height: 30px;
+  }
+  88% {
+    height: 50px;
+  }
+  92% {
+    height: 30px;
+  }
+  96% {
+    height: 40px;
+  }
+  100% {
+    height: 50px;
+  }
+}
+
+.eqwrap {
+	position : fixed;
+	top : 980px;
+	bottom : 0px;
+	left : 0px;
+	right : 0px;
+	height : 50px;
+	transform : rotate(180deg);
+}
+
+.bar1{
+	position : absolute;
+	right : 22px;
+	height : 50px;
+	width : 18px;
+	background-color : white;
+	opacity : 0.9;
+	-webkit-animation-name:            eq; 
+	-webkit-animation-duration:        4.7s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	transform : rotate(180deg);
+}
+
+.bar2{
+	position : absolute;
+	height : 50px;
+	width : 18px;
+	right : 44px;
+	background-color : white;
+	opacity : 0.9;
+	-webkit-animation-name:            eq; 
+	-webkit-animation-duration:        5.7s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.bar3{
+	position : absolute;
+	height : 50px;
+	width : 18px;
+	right : 66px;
+	background-color : white;
+	opacity : 0.9;
+	-webkit-animation-name:            eq; 
+	-webkit-animation-duration:        4.2s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.bar4{
+	position : absolute;
+	height : 50px;
+	width : 18px;
+	right : 88px;
+	background-color : white;
+	opacity : 0.9;
+	-webkit-animation-name:            eq; 
+	-webkit-animation-duration:        5.2s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.bar5{
+	position : absolute;
+	height : 50px;
+	width : 18px;
+	right : 110px;
+	background-color : white;
+	opacity : 0.9;
+	-webkit-animation-name:            eq; 
+	-webkit-animation-duration:        6s; 
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+#particles-js {
+	position : fixed;
+	top : 0;
+	bottom : 0;
+	left : 0;
+	right : 0;
+	z-index : 10;
+}
+
+.app4 {
+	position : fixed;
+	top : 0px;
+	bottom : 0px;
+	left : 0px;
+	right : 0px;
+}
+
+.videobg {
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+  display : none;
+}
+
+.videobg-block {
+	display : block;
+}
+
+.play1 {
+	position : absolute;
+	z-index : 500;
+	top : 28px;
+	left : 38px;
+	opacity : 0.3;
+	ransition : 0.3s;
+}
+
+.play1:hover {
+	opacity : 0.8;
+	transition : 0.3s;
+}
+
+.nones {
+	display : none;
+}
+
+
+.blocks {
+	display : block;
+}
+
+
+</style>
+
+<script>
+$(document).ready(function(){
+	
+	
+	$('.img1').animate({
+		'opacity' : '1'
+	}, 2000);
+	$('.img1').delay(1000).animate({
+		'left' : '15px',
+		'opacity' : '0.2'
+	}, 20);
+	$('.img1').animate({
+		'left' : '0px',
+		'opacity' : '1'
+	}, 20);
+	$('.img1').delay(1200).animate({
+		'top' : '260px',
+		'left' : '-50px',
+		'opacity' : '0.2'
+	}, 10);
+	$('.img1').animate({
+		'top' : '310px',
+		'left' : '50px',
+		'opacity' : '0.2'
+	}, 10);
+	$('.img1').animate({
+		'top' : '280px',
+		'left' : '0px',
+		'opacity' : '1'
+	}, 10);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	$('.app1, .app2, .app3, .app5, .app4, .app7, .app8, .playbutton').css(
+		'opacity', '0'
+	);
+	$('.app7, .playbutton').delay(5300).animate({
+		'opacity' : '1'
+	}, 300);
+	$('.app3').delay(5600).animate({
+		'opacity' : '1'
+	}, 300);
+	$('.app5').delay(5900).animate({
+		'opacity' : '1'
+	}, 300);
+	$('.app8').delay(6200).animate({
+		'opacity' : '1'
+	}, 300);
+	$('.app4').delay(6500).animate({
+		'opacity' : '1'
+	}, 300);
+	$('.app2').delay(6800).animate({
+		'opacity' : '1'
+	}, 300);
+	$('.app1').delay(7100).animate({
+		'opacity' : '1'
+	}, 300);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	$('#opwrap').delay(5200).animate({
+			'opacity' : '0',
+			'z-index' : '-1'
+		}, 400);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	
+	var images = ['myimgs/bg0.png', 'myimgs/bg1.png', 'myimgs/bg2.png', 'myimgs/bg4.png', 'myimgs/bg5.png', 'myimgs/bg3.png'];
+	var i = 0;
+
+	setInterval(function(){
+		$('body').css('background-image', function() {
+			if (i >= images.length) {
+				i=0;
+			}
+			return 'url(' + images[i++] + ')'; 
+		});
+	}, 25000);
+	
+});
+</script>
+
+<script>
+$(document).ready(function() {
+
+function pad ( val ) { return val > 9 ? val : "0" + val; }
+ var count = 0, s = 0, m = 0, h = 0, d = 0;
+setInterval( function(){
+   /* $("#seconds").html(pad(++sec%60)); */
+   count++;
+   s = pad(parseInt(count%60));
+   m = pad(parseInt((count/60)%60, 10));
+   h = pad(parseInt((count/3600)%24, 10));
+   d = pad(parseInt((count/3600/24)%99, 10));
+   
+    $("#seconds").html(s);
+	$("#minutes").html(m);
+	$("#hours").html(h);
+	$("#days").html(d);
+}, 1000);
+});
+</script>
+
+<script>
+$(document).ready(function() {
+	$('.ps1').delay(20000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps2').delay(40000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps3').delay(60000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps4').delay(80000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps5').delay(100000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps6').delay(120000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps7').delay(140000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps8').delay(160000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps9').delay(180000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps10').delay(200000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps11').delay(220000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps12').delay(240000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps13').delay(260000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps14').delay(280000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps15').delay(300000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps16').delay(320000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps17').delay(340000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps18').delay(360000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps19').delay(380000).animate({
+		'opacity' : '0'
+	}, 200);
+	$('.ps0').delay(400000).animate({
+		'opacity' : '0'
+	}, 200);
+	
+	$('[class^=ps]').delay(420000).animate({
+		'opacity' : '1'
+	}, 400);
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	
+	$('.app1').hover(function(){
+		$('.app1hover').animate({
+			'opacity' : '1'
+		}, 40);
+		$('.app1hover').animate({
+			'opacity' : '0'
+		}, 40);
+		$('.app1hover').animate({
+			'opacity' : '1'
+		}, 40);
+	}, function(){
+		$('.app1hover').stop(true).animate({
+			'opacity' : '0'
+		}, 80);
+	});
+	
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	
+	$('.app2etc').delay(10000).animate({
+		'left' : '4px',
+		'opacity' : '0.2'
+	}, 40);
+	$('.app2etc').animate({
+		'left' : '0px',
+		'opacity' : '1'
+	}, 40);
+	$('.app2etc').delay(4000).animate({
+		'right' : '3px',
+		'top' : '4px',
+		'opacity' : '0.2'
+	}, 30);
+	$('.app2etc').animate({
+		'right' : '0px',
+		'top' : '0px',
+		'opacity' : '1'
+	}, 30);
+
+	setInterval(function(){
+		$('.app2etc').delay(10000).animate({
+			'left' : '4px',
+			'opacity' : '0.2'
+		}, 40)
+		$('.app2etc').animate({
+			'left' : '0px',
+			'opacity' : '1'
+		}, 40)
+		$('.app2etc').delay(4000).animate({
+			'right' : '3px',
+			'top' : '4px',
+			'opacity' : '0.2'
+		}, 30)
+		$('.app2etc').animate({
+			'right' : '0px',
+			'top' : '0px',
+			'opacity' : '1'
+		}, 30)
+	}, 31000);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	
+	Time();
+	function Time()
+	{
+		var now = new Date();
+		var h = now.getHours();
+		var m = now.getMinutes();
+		var mon = now.getMonth();
+		var d = now.getDay();
+		var dt = now.getDate();
+		var y = now.getFullYear();
+		var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+		var check = days[d];
+		var AMPM;
+		var y2 = y-2000;
+		mon = mon + 1;
+		if(h>=12 && h<24)
+		{
+			AMPM = "PM";
+		}
+		if(h>=0 && h<12)
+		{
+			AMPM = "AM";
+		}
+		
+		h = checkTime2(h);
+		m = checkTime(m);
+		mon = checkTime(mon);
+	
+		$('.date1').html(h+':'+m);
+		$('.date2').html(check);
+		$('.date3').html(dt+',');
+		$('.date4').html(y);
+		$('.date10').html(h+':'+m);
+		$('.date11').html(AMPM);
+		$('.date12').html(h+':'+m);
+		$('.date13').html(AMPM);
+		$('.date14').html(dt+'.'+mon+'.'+y2);
+		
+		setTimeout(function()
+		{
+			Time();
+		}, 500);
+	}
+	function checkTime(i) 
+	{
+		if (i < 10) 
+		{
+			i = "0" + i;
+		}
+		return i;
+	}
+	function checkTime2(i)
+	{
+		var j;
+		j = i % 12;
+		if(j>9)
+		{
+			return j;
+			
+		}
+		else
+		{
+			return "0" + j;
+		}
+	}
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+Time1();
+	function Time1()
+	{
+		var current = new Date();
+		var mon = current.getMonth();
+		
+		mon = ChangeToString(mon);
+		
+		function ChangeToString(i)
+		{
+			var j = i + 1;
+			
+			if(j == 1)
+			{
+				return "January";
+			}
+			else if (j == 2)
+			{
+				return "February";
+			}
+			else if (j == 3)
+			{
+				return "March";
+			}
+			else if (j == 4)
+			{
+				return "April";
+			}
+			else if (j == 5)
+			{
+				return "May";
+			}
+			else if (j == 6)
+			{
+				return "June";
+			}
+			else if (j == 7)
+			{
+				return "July";
+			}
+			else if (j == 8)
+			{
+				return "August";
+			}
+			else if (j == 9)
+			{
+				return "September";
+			}
+			else if (j == 10)
+			{
+				return "October";
+			}
+			else if (j == 11)
+			{
+				return "November";
+			}
+			else
+			{
+				return "December";
+			}
+		}
+		
+		$('.date5').html(mon);
+		
+		setTimeout(function()
+		{
+			Time1();
+		}, 500);
+	}
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	
+	function addZero(x,n) {
+    while (x.toString().length < n) {
+        x = "0" + x;
+    }
+		return x;
+	}
+
+function myFunction() {
+    var d = new Date();
+    var ms = addZero(d.getMilliseconds(), 3);
+	$('.date6').html(ms);
+}
+
+setInterval(function(){
+	myFunction();
+}, 20)
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	
+	function addZero(x,n) {
+    while (x.toString().length < n) {
+        x = "0" + x;
+    }
+		return x;
+	}
+
+function myFunction() {
+    var d = new Date();
+    var ms = addZero(d.getMilliseconds(), 3);
+	$('.date7').html(ms);
+}
+
+setInterval(function(){
+	myFunction();
+}, 100)
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	
+	function addZero(x,n) {
+    while (x.toString().length < n) {
+        x = "0" + x;
+    }
+		return x;
+	}
+
+function myFunction() {
+    var d = new Date();
+    var ms = addZero(d.getMilliseconds(), 3);
+	$('.date8').html(ms);
+}
+
+setInterval(function(){
+	myFunction();
+}, 50)
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	
+	function addZero(x,n) {
+    while (x.toString().length < n) {
+        x = "0" + x;
+    }
+		return x;
+	}
+
+function myFunction() {
+    var d = new Date();
+    var ms = addZero(d.getMilliseconds(), 3);
+	$('.date9').html(ms);
+}
+
+setInterval(function(){
+	myFunction();
+}, 50)
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+$('.app5').delay(15000).animate({
+		'left' : '4px',
+		'opacity' : '0.2'
+	}, 40);
+	$('.app5').animate({
+		'left' : '0px',
+		'opacity' : '1'
+	}, 40);
+	$('.app5').delay(5000).animate({
+		'right' : '3px',
+		'top' : '4px',
+		'opacity' : '0.2'
+	}, 30);
+	$('.app5').animate({
+		'right' : '0px',
+		'top' : '0px',
+		'opacity' : '1'
+	}, 30);
+
+	setInterval(function(){
+		$('.app5').delay(15000).animate({
+			'left' : '4px',
+			'opacity' : '0.2'
+		}, 40)
+		$('.app5').animate({
+			'left' : '0px',
+			'opacity' : '1'
+		}, 40)
+		$('.app5').delay(5000).animate({
+			'right' : '3px',
+			'top' : '4px',
+			'opacity' : '0.2'
+		}, 30)
+		$('.app5').animate({
+			'right' : '0px',
+			'top' : '0px',
+			'opacity' : '1'
+		}, 30)
+	}, 43000);
+});
+</script>
+
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+
+// html5media enables <video> and <audio> tags in all major browsers
+// Add user agent as an attribute on the <html> tag...
+// Inspiration: https://css-tricks.com/ie-10-specific-styles/
+
+var b = document.documentElement;
+b.setAttribute('data-useragent', navigator.userAgent);
+b.setAttribute('data-platform', navigator.platform);
+
+
+// HTML5 audio player + playlist controls...
+// Inspiration: http://jonhall.info/how_to/create_a_playlist_for_html5_audio
+// Created by mh
+
+jQuery(function ($) {
+    var supportsAudio = !!document.createElement('audio').canPlayType;
+    if (supportsAudio) {
+        var index = 0,
+            playing = false,
+            mediaPath = './mysong/',
+            extension = '',
+            tracks = [{
+                "track": 1,
+                "name": "Starset - Monster",
+                "length": "3:03",
+                "file": "Arknights"
+            }
+			],
+            buildPlaylist = $.each(tracks, function(key, value) {
+                var trackNumber = value.track,
+                    trackName = value.name,
+                    trackLength = value.length;
+                if (trackNumber.toString().length === 1) {
+                    trackNumber = '0' + trackNumber;
+                } else {
+                    trackNumber = '' + trackNumber;
+                }
+                $('#plList').append('<li><div class="plItem"><div class="plNum">' + trackNumber + '.</div><div class="plTitle">' + trackName + '</div><div class="plLength">' + trackLength + '</div></div></li>');
+            }),
+            trackCount = tracks.length,
+            npAction = $('#npAction'),
+            npTitle = $('#npTitle'),
+            audio = $('#audio1').bind('play', function () {
+                playing = true;
+                npAction.text('Now Playing...');
+            }).bind('pause', function () {
+                playing = false;
+                npAction.text('Paused...');
+            }).bind('ended', function () {
+                npAction.text('Paused...');
+                if ((index + 1) < trackCount) {
+                    index++;
+                    loadTrack(index);
+                    audio.play();
+                } else {
+                    audio.pause();
+                    index = 0;
+                    loadTrack(index);
+                }
+            }).get(0),
+            btnPrev = $('#btnPrev').click(function () {
+                if ((index - 1) > -1) {
+                    index--;
+                    loadTrack(index);
+                    if (playing) {
+                        audio.play();
+                    }
+                } else {
+                    audio.pause();
+                    index = 0;
+                    loadTrack(index);
+                }
+            }),
+            btnNext = $('#btnNext').click(function () {
+                if ((index + 1) < trackCount) {
+                    index++;
+                    loadTrack(index);
+                    if (playing) {
+                        audio.play();
+                    }
+                } else {
+                    audio.pause();
+                    index = 0;
+                    loadTrack(index);
+                }
+            }),
+            li = $('#plList li').click(function () {
+                var id = parseInt($(this).index());
+                if (id !== index) {
+                    playTrack(id);
+                }
+            }),
+            loadTrack = function (id) {
+                $('.plSel').removeClass('plSel');
+                $('#plList li:eq(' + id + ')').addClass('plSel');
+                npTitle.text(tracks[id].file);
+                index = id;
+                audio.src = mediaPath + tracks[id].file + extension;
+            },
+            playTrack = function (id) {
+                loadTrack(id);
+                audio.play();
+            };
+        extension = audio.canPlayType('audio/ogg') ? '.ogg' : audio.canPlayType('audio/mp3') ? '.mp3' : '';
+        loadTrack(index);
+    }
+});
+
+});
+</script>
+
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+	$('.music1').click(function(){	
+		$('.container').stop(true).toggleClass('container-block');
+		$('.music1').stop(true).toggleClass('music1-opacity');
+	});
+});
+</script>
+
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+	$('.toggle2').click(function(){
+		$('.app1, .app2, .app3, .app4, .app5, .app7, .app8, .playbutton').stop(true).animate({
+			'opacity' : '0'
+		}, 300);
+		$('.app2, .app5').addClass('nones');
+	});
+	$('.toggle3').click(function(){
+		$('.app2, .app5').addClass('blocks');
+		$('.app3, .app5, .app7, .playbutton').stop(true).animate({
+			'opacity' : '1'
+		}, 300);
+		$('.app2, .app4, .app8').stop(true).delay(300).animate({
+			'opacity' : '1'
+		}, 300);
+		$('.app1').stop(true).delay(600).animate({
+			'opacity' : '1'
+		}, 300);
+	});
+});
+</script>
+
+<script>
+$(document).ready(function(){
+
+	$('.play1').click(function() {
+		$('.app1, .app2, .app3, .app4, .app5, .app6, .app7, .app8').toggleClass('nones');
+		$('.videobg').toggleClass('videobg-block');
+		$('.videobg').get(0).paused ? $('.videobg').get(0).play() : $('.videobg').get(0).pause();
+    });
+});
+</script>
+
+</head>
+<body>
+<div id="particles-js"></div>
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+<div id="wrap">
+	<div id="opwrap">
+		<div class="opening">
+			<img class="img1" src="myimgs/6.png" /> 
+		</div>
+	</div>
+	<div id="apps">
+		<div class="app1">
+			<img class="img2" src="myimgs/group 3 (2).png" />
+			<img class="img3" src="myimgs/C_uptime.png" />
+			<img class="img4" src="myimgs/group 21.png" />
+			<img class="img5" src="myimgs/ER-2.png" />
+			<div class="app1hover">
+				<img class="img6" src="myimgs/circle 1 copy 4.png" />
+				<img class="img7" src="myimgs/group 23.png" />
+				<img class="img8" src="myimgs/UPTIME.png" />
+			</div>
+			<div id="pieces">
+				<img class="ps0" src="myimgs/pieces/rec 1.png" />
+				<img class="ps1" src="myimgs/pieces/rec 5.png" />
+				<img class="ps2" src="myimgs/pieces/rec 6.png" />
+				<img class="ps3" src="myimgs/pieces/rec 7.png" />
+				<img class="ps4" src="myimgs/pieces/rec 8.png" />
+				<img class="ps5" src="myimgs/pieces/rec 9.png" />
+				<img class="ps6" src="myimgs/pieces/rec 10.png" />
+				<img class="ps7" src="myimgs/pieces/rec 11.png" />
+				<img class="ps8" src="myimgs/pieces/rec 12.png" />
+				<img class="ps9" src="myimgs/pieces/rec 13.png" />
+				<img class="ps10" src="myimgs/pieces/rec 14.png" />
+				<img class="ps11" src="myimgs/pieces/rec 15.png" />
+				<img class="ps12" src="myimgs/pieces/rec 16.png" />
+				<img class="ps13" src="myimgs/pieces/rec 17.png" />
+				<img class="ps14" src="myimgs/pieces/rec 18.png" />
+				<img class="ps15" src="myimgs/pieces/rec 19.png" />
+				<img class="ps16" src="myimgs/pieces/rec 20.png" />
+				<img class="ps17" src="myimgs/pieces/rec 21.png" />
+				<img class="ps18" src="myimgs/pieces/rec 22.png" />
+				<img class="ps19" src="myimgs/pieces/rec 23.png" />
+			</div>
+			<div class="uptime">
+				<span id="days">00</span>
+				<span id="sp1">:</span>
+				<span id="hours">00</span>
+				<span id="sp2">:</span>
+				<span id="minutes">00</span>
+				<span id="sp3">:</span>
+				<span id="seconds">00</span>
+			</div>
+		</div>
+		<div class="app2">
+			<div class="circles">
+				<img class="rd1" src="myimgs/round1/circle 3 (2).png" />
+				<img class="rd2" src="myimgs/round1/circle 3 copy.png" />
+				<img class="rd3" src="myimgs/round1/circle 3 copy 2.png" />
+				<img class="rd4" src="myimgs/round1/circle 3 copy 3.png" />
+				<img class="rd5" src="myimgs/round1/circle 3 copy 4.png" />
+				<img class="rd6" src="myimgs/round1/circle 3 copy 5.png" />
+				<img class="rd7" src="myimgs/round1/circle 3 copy 6.png" />
+				<img class="rd8" src="myimgs/round1/circle 3 copy 7.png" />
+				<img class="rd9" src="myimgs/round1/circle 3 copy 8.png" />
+				<img class="rd10" src="myimgs/round1/circle 3 copy 9.png" />
+			</div>
+			<div class="app2etc">
+				<img class="etc1" src="myimgs/group 10.png" />
+				<img class="etc2" src="myimgs/group 8.png" />
+				<img class="etc3" src="myimgs/group 9.png" />
+				<img class="etc4" src="myimgs/group 11.png" />
+				<img class="etc5" src="myimgs/group 12.png" />
+				<img class="etc6" src="myimgs/group 13.png" />
+			</div>
+			<div class="clock0">
+				<p class="date6"></p>
+				<p class="date7"></p>
+				<p class="date8"></p>
+				<p class="date9"></p>
+				<p class="date10"></p>
+				<p class="date11"></p>
+				<p class="date12"></p>
+				<p class="date13"></p>
+				<p class="date14"></p>
+			</div>
+		</div>
+		<div class="app3">
+			<div class="clock">
+				<p class="date1"></p>
+				<p class="date2"></p>
+				<p class="date3"></p>
+				<p class="date4"></p>
+				<p class="date5"></p>
+			</div>
+			<div class="clockcircle">
+				<img class="CC1" src="myimgs/circle 5.png" />
+				<img class="CC2" src="myimgs/circle 5 copy.png" />
+				<img class="CC3" src="myimgs/circle 5 copy 2.png" />
+				<img class="CC4" src="myimgs/circle 5 copy 3.png" />
+				<img class="CC5" src="myimgs/circle 5 copy 4.png" />
+			</div>
+		</div>
+		<div class="app4">
+			<img class="logo1" src="myimgs/group 0.png" />
+		</div>
+		<div class="app5">
+			<img class="meter1" src="myimgs/group 25.png" />
+		</div>
+		<div class="app6">
+			<img class="toggle1" src="myimgs/group 27.png" />
+			<img class="toggle2" src="myimgs/SHUTDOWN.png" />
+			<img class="toggle3" src="myimgs/RESTART.png" />
+		</div>
+		<div class="app7">
+			<img class="music1" src="myimgs/group 28.png" />
+			<div class="container">
+				<div class="column add-bottom">
+					<div id="mainwrap">
+						<div id="nowPlay">
+							<span class="left" id="npAction">Paused...</span>
+							<span class="right" id="npTitle"></span>
+						</div>
+						<div id="audiowrap">
+							<div id="audio0">
+								<audio loop preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+							</div>
+						 
+						</div>
+						<div id="plwrap">
+							<ul id="plList"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="app8">
+			<div class="eqwrap">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+				<div class="bar4"></div>
+				<div class="bar5"></div>
+			</div>
+		</div>
+		<div class="app9">
+			<div class="playbutton">
+				<img class="play1" src="myimgs/group 28 copy.png" />
+			</div>
+			<video loop class="videobg" plays-inline>
+				<source src="myvideo/Arknights.webm" type="video/webm">
+			</video>
+		</div>
+	</div>
+</div>
+</body>
+</html>
